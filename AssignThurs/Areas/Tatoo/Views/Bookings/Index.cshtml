@@ -1,0 +1,33 @@
+﻿@model IEnumerable<AssignThurs.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="card-columns">
+    @foreach (var booking in Model)
+    {
+        <div class="card">
+            <div class="card-header bg-danger">
+                @booking.BookingId
+            </div>
+            <div class="card-body bg-warning">
+                @Html.DisplayNameFor(modelItem => booking.BookingName) : @booking.BookingName
+                <br />
+                @Html.DisplayNameFor(modelItem => booking.JoinedOn) : @booking.JoinedOn
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@booking.BookingId">Edit</a>
+                <a class="btn btn-sm btn-primary" asp-action="Details" asp-route-id="@booking.BookingId">Details</a>
+                <a class="btn btn-sm btn-primary" asp-action="Delete" asp-route-id="@booking.BookingId">Delete</a>
+            </div>
+        </div>
+    }
+</div>
+

@@ -1,0 +1,225 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+</head>
+
+
+<style>
+    .body {
+        width: 100%;
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 80px;
+        background: #E3E6F3;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    #navBar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+        #navBar li {
+            list-style: none;
+            padding: 0 20px;
+        }
+
+            #navBar li a {
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 600;
+                color: black;
+                transition: 0.3s ease;
+            }
+
+                #navBar li a:hover {
+                    color: blue;
+                }
+
+
+    .mainBoard {
+        background-image: url("/lib/board.jpg");
+        height: 90vh;
+        width: 100%;
+        background-size: cover;
+        background-position: top 25%;
+        right 0;
+        display: flex;
+        padding: 0 80px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+        .mainBoard h1 {
+            color: red;
+            font-size: 50px;
+        }
+
+        .mainBoard button {
+            background-image: url("/lib/button.png");
+            background-color: transparent;
+            color: aquamarine;
+            border: 0;
+            padding: 14px 80px 14px 65px;
+        }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+        .feature .featureBox {
+            width: 160px;
+            text-align: center;
+            padding: 25px 15px;
+            box-shadow: 20px 20px 34px rgb(0,0,0,0.03);
+            border: 1px solid #cce7d0;
+            margine: 15px 0;
+        }
+
+    .first {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+        .first .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .first h4 {
+            font-size: 14px;
+            padding-bottom: 10px;
+        }
+
+        .first p {
+            font-size: 13px;
+            margin: 0 0 8px 0;
+        }
+
+        .first a {
+            font-size: 13px;
+            text-decoration: none;
+            color: black;
+            margin: 0 0 8px 0;
+        }
+</style>
+
+
+
+
+<section class="header">
+
+    <a href="#"><img src="/lib/logo.png" alt="" class="logo" style="margin-bottom: 30px; height: 80px; width:100px;"></a>
+
+    <div id="" class="">
+
+        <ul id="navBar">
+
+            <li><a href="">Home</a></li>
+            <li><a href="">Shop</a></li>
+            <li><a href="">Hot Deals</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href=""><i class="fa-regular fa-cart-shopping-fast"></i></a></li>
+        </ul>
+
+
+    </div>
+</section>
+
+
+<section class="mainBoard">
+
+    <h4>Trade in offer</h4>
+    <h1>Refresh Your Home</h1>
+    <p>Shop more, Save more</p>
+    <button>Shop Now</button>
+
+</section>
+
+
+<section class="feature" style="padding: 40px 80px;">
+
+    <div class="featureBox">
+        <img src="/lib/clothing.png" style="height: 150px; width:150px">
+        <h6>Fashion</h6>
+
+    </div>
+
+    <div class="featureBox">
+        <img src="/lib/mobile.png" style="height: 150px; width:150px">
+        <h6>Mobile</h6>
+
+    </div>
+
+    <div class="featureBox">
+        <img src="/lib/electronics.png" style="height: 150px; width:150px">
+        <h6>Electronics</h6>
+
+    </div>
+
+    <div class="featureBox">
+        <img src="/lib/glo.png" style="height: 150px; width:150px">
+        <h6>Glocery</h6>
+
+    </div>
+
+    <div class="featureBox">
+        <img src="/lib/toys.png" style="height: 150px; width:150px">
+        <h6>Toys</h6>
+    </div>
+
+</section>
+
+
+<footer class="first">
+    <div class="col">
+        <img src="/lib/logo.png" style="margin-bottom: 30px; height: 80px; width:100px;" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> Pune, Maharshtra</p>
+        <p><strong>Phone:</strong> +91 9999988888</p>
+    </div>
+
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Track Order</a>
+        <a href="#">Return and Replacement</a>
+        <a href="#">Terms & Conditions</a>
+    </div>
+
+
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View Cart</a>
+        <a href="#">Wishlist</a>
+        <a href="#">Help</a>
+    </div>
+</footer>
+*@

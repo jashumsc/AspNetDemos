@@ -12,9 +12,11 @@ namespace MyAspDemos.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public String Name;
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
+            Name = "jashwanth s";
         }
 
         public void OnGet()

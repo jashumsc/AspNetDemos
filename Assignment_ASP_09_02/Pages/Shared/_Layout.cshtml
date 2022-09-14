@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MyAspDemos</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="style" href="~/css/site.css" />
+
+ 
+</head>
+<body>
+   
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+   @* <div class="wrapper" style=" width: 100vw;
+    height: 100vh;
+    background-color: rgba(90, 95, 95, 0.39);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+    <div class="userForm">
+        <form id="Form1" name="Form1" action="" class="form signup signupForm" onSubmit="JavaScript:return fValidateAll();">
+                <div class="inputGroup" style="width: 300px;
+    margin: 0.5em 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-weight: 500;">
+                    <input type="text" id="fname" name="fname" placeholder="First name" autocomplete="offf" style="width: 100%;
+        padding: 1em 1.5em;
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;">
+
+            </div>
+            <span id="errfname" class="err"></span>
+                <div class="inputGroup" style="width: 300px;
+    margin: 0.5em 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-weight: 500;">
+                    <input type="text" id="lname" name="lname" placeholder="Last name" autocomplete="offf" style="width: 100%;
+        padding: 1em 1.5em;
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;">
+
+            </div>
+            <span id="errlname" class="err"></span>
+                <div class="inputGroup" style="width: 300px;
+    margin: 0.5em 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-weight: 500;">
+                    <input type="text" id="email" name="email" placeholder="Email address" autocomplete="offf" style="width: 100%;
+        padding: 1em 1.5em;
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;" >
+            </div>
+            <span id="erremail" class="err"></span>
+
+                <div class="inputGroup" style="width: 300px;
+    margin: 0.5em 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-weight: 500;">
+                    <input type="password" id="pass" name="pass" placeholder="Create new password" autocomplete="offf" style="width: 100%;
+        padding: 1em 1.5em;
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;" >
+
+            </div>
+            <span id="errpass" class="err"></span>
+                <div class="inputGroup" style="width: 300px;
+    margin: 0.5em 0;
+    background-color: rgb(245, 245, 245);
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    font-weight: 500;">
+                    <input type="password" id="cpass" name="cpass" placeholder="Confirm password" autocomplete="offf" style="width: 100%;
+        padding: 1em 1.5em;
+        background-color: transparent;
+        border: none;
+        border-radius: 50px;" >
+
+            </div>
+            <span id="errcpass" class="err"></span>
+            <div>
+                    <button type="submit" class="submitBtn" style="width: 150px;
+    padding: 1em;
+    margin: 1em 0;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;" onclick="JavaScript: fSubmitMe();">
+                        signup
+                    </button>
+            </div>
+        </form>
+     </div>
+   </div>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup Login form</title>
+    <link rel="stylesheet" href="eCAPST.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="modalForm">
+            <div class="actionBtns">
+                <button class="actionBtn signupBtn">signup</button>
+                <button class="actionBtn loginBtn">Login</button>
+                <button class="moveBtn">signup</button>
+            </div>
+            <div class="userForm">
+                <form id="Form1" name="Form1" action="" class="form signup signupForm" onSubmit="JavaScript:return fValidateAll();">
+                    <div class="inputGroup">
+                        <input type="text" id="fname" name="fname" placeholder="First name" autocomplete="offf">
+
+                    </div>
+                    <span id="errfname" class="err"></span>
+                    <div class="inputGroup">
+                        <input type="text" id="lname" name="lname" placeholder="Last name" autocomplete="offf">
+
+                    </div>
+                    <span id="errlname" class="err"></span>
+                    <div class="inputGroup">
+                        <input type="text" id="email" name="email" placeholder="Email address" autocomplete="offf">
+                    </div>
+                    <span id="erremail" class="err"></span>
+
+                    <div class="inputGroup">
+                        <input type="password" id="pass" name="pass" placeholder="Create new password" autocomplete="offf">
+
+                    </div>
+                    <span id="errpass" class="err"></span>
+                    <div class="inputGroup">
+                        <input type="password" id="cpass" name="cpass" placeholder="Confirm password" autocomplete="offf">
+
+                    </div>
+                    <span id="errcpass" class="err"></span>
+                    <div>
+                        <button type="submit" class="submitBtn" onclick="JavaScript: fSubmitMe();">signup</button>
+                    </div>
+                </form>
+
+                <form action="" class="form login" id="Form2" name="Form2" onSubmit="JavaScript:return fValidateAll1();">
+                    <div class="inputGroup">
+                        <input type="email"  id="lemail" name="lemail"  placeholder="Email address" autocomplete="offf">
+                    </div>
+                    <span id="errlemail" class="err"></span>
+                    <div class="inputGroup">
+                        <input type="password" id="lpass" name="lpass" placeholder="Enter your password" autocomplete="offf">
+                    </div>
+                    <span id="errlpass" class="err"></span>
+                    <div>
+                        <button type="submit" class="submitBtn" onclick="JavaScript: fSubmitMe1();">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="eCAPST.js"></script>
+</body>
+</html>
