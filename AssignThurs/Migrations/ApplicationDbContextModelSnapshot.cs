@@ -35,6 +35,26 @@ namespace AssignThurs.Migrations
                     b.ToTable("Artists");
                 });
 
+            modelBuilder.Entity("AssignThurs.Models.Bike", b =>
+                {
+                    b.Property<int>("BikeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("BikeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(30)")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("BikePicUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BikeId");
+
+                    b.ToTable("Bikes");
+                });
+
             modelBuilder.Entity("AssignThurs.Models.Booking", b =>
                 {
                     b.Property<int>("BookingId")

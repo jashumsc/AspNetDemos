@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AssignThurs.Models
@@ -13,6 +14,9 @@ namespace AssignThurs.Models
         [Required]
         public string ArtistName { get; set; }
 
-
+        [Display(Name = "Choose the author photo")]
+        [Required]
+        [NotMapped]
+        public IFormFile ArtistPhoto { get; set; }
     }
 }

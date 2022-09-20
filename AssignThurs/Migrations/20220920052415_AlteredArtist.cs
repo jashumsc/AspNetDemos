@@ -2,7 +2,7 @@
 
 namespace AssignThurs.Migrations
 {
-    public partial class AddedArtistmodel : Migration
+    public partial class AlteredArtist : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

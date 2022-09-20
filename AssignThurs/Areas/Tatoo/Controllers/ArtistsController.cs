@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssignThurs.Data;
 using AssignThurs.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace AssignThurs.Areas.Tatoo.Controllers
 {
@@ -14,9 +16,11 @@ namespace AssignThurs.Areas.Tatoo.Controllers
     public class ArtistsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public ArtistsController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public ArtistsController(ApplicationDbContext context,
+            IWebHostEnvironment webHostEnvironment)
         {
+            _webHostEnvironment = webHostEnvironment;
             _context = context;
         }
 
@@ -59,6 +63,13 @@ namespace AssignThurs.Areas.Tatoo.Controllers
         {
             if (ModelState.IsValid)
             {
+                if(artist.ArtistPhoto != null)
+                {
+                    string folder = "artist/cover";
+                    folder += artist.ArtistPhoto.FileName + Guid.NewGuid().ToString();
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                }
+
                 _context.Add(artist);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

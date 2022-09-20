@@ -16,7 +16,7 @@ namespace AssignThurs.Data
 
         public DbSet<Artist> Artists { get; set; }
 
-
+        public DbSet<Bike> Bikes { get; set; }
 
     }
 }

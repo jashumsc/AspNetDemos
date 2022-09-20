@@ -5,55 +5,55 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using MyAspDemos.Data;
-using MyAspDemos.Models;
+using AssignThurs.Data;
+using AssignThurs.Models;
 
-namespace MyAspDemos.Controllers
+namespace AssignThurs.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BooksController : ControllerBase
+    public class ArtistsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public BooksController(ApplicationDbContext context)
+        public ArtistsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Books
+        // GET: api/Artists
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBooks()
+        public async Task<ActionResult<IEnumerable<Artist>>> GetArtists()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Artists.ToListAsync();
         }
 
-        // GET: api/Books/5
+        // GET: api/Artists/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(int id)
+        public async Task<ActionResult<Artist>> GetArtist(int id)
         {
-            var book = await _context.Books.FindAsync(id);
+            var artist = await _context.Artists.FindAsync(id);
 
-            if (book == null)
+            if (artist == null)
             {
                 return NotFound();
             }
 
-            return book;
+            return artist;
         }
 
-        // PUT: api/Books/5
+        // PUT: api/Artists/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBook(int id, Book book)
+        public async Task<IActionResult> PutArtist(int id, Artist artist)
         {
-            if (id != book.BookId)
+            if (id != artist.ArtistId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(book).State = EntityState.Modified;
+            _context.Entry(artist).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace MyAspDemos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BookExists(id))
+                if (!ArtistExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace MyAspDemos.Controllers
             return NoContent();
         }
 
-        // POST: api/Books
+        // POST: api/Artists
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
+        public async Task<ActionResult<Artist>> PostArtist(Artist artist)
         {
-            _context.Books.Add(book);
+            _context.Artists.Add(artist);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBook", new { id = book.BookId }, book);
+            return CreatedAtAction("GetArtist", new { id = artist.ArtistId }, artist);
         }
 
-        // DELETE: api/Books/5
+        // DELETE: api/Artists/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Book>> DeleteBook(int id)
+        public async Task<ActionResult<Artist>> DeleteArtist(int id)
         {
-            var book = await _context.Books.FindAsync(id);
-            if (book == null)
+            var artist = await _context.Artists.FindAsync(id);
+            if (artist == null)
             {
                 return NotFound();
             }
 
-            _context.Books.Remove(book);
+            _context.Artists.Remove(artist);
             await _context.SaveChangesAsync();
 
-            return book;
+            return artist;
         }
 
-        private bool BookExists(int id)
+        private bool ArtistExists(int id)
         {
-            return _context.Books.Any(e => e.BookId == id);
+            return _context.Artists.Any(e => e.ArtistId == id);
         }
     }
 }

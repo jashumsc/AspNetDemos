@@ -1,4 +1,24 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using MyAspDemos.Models.Enums
+
+@*----- to find if user is logged in *@
+@inject SignInManager<IdentityUser> _signInManager
+
+@*----- gets the user object to see properties, roles *@
+@inject UserManager<IdentityUser> _userManager
+
+@{
+    bool isLoggedIn = _signInManager.IsSignedIn(this.User);
+
+    bool isUserAdmin = false;
+    IdentityUser user = await _userManager.GetUserAsync(this.User);         // gets the Logged In User
+    if (user != null)
+    {
+        isUserAdmin = await _userManager.IsInRoleAsync(user, MyIdentityRoleNames.LibraryAdmin.ToString());
+    }
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,19 +49,29 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
                                 Admin
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item"
-                                   asp-area="Library" asp-controller="Categories" asp-action="Index">Categories</a>
+                           
+                                    <div class="dropdown-menu">
+                                @if (isLoggedIn)
+                                {
+                                    if (isUserAdmin)
+                                    {
+                                        <a class="dropdown-item"
+                                           asp-area="Library" asp-controller="Categories" asp-action="Index">Categories</a>
+    }
                                 <a class="dropdown-item"
                                    asp-area="Library" asp-controller="Books" asp-action="Index">Books</a>
                                 <a class="dropdown-item"
                                    asp-area="Library" asp-controller="Authors" asp-action="Index">Authors</a>
                                 <div class="dropdown-divider"></div>
+                                }
                                 <a class="dropdown-item"
-                                   asp-area="LibMgmt" asp-controller="ShowBooks" asp-action="Index">Show Books</a>
+                                   asp-area="Library" asp-controller="ShowBooks" asp-action="Index">Show Books</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="~/MyCategoriesApiDemo.html">
                                     Categories API Demo
+                                </a>
+                                <a class="dropdown-item" href="~/MyBooksApi.html">
+                                    Book API 
                                 </a>
                             </div>
                         </li>

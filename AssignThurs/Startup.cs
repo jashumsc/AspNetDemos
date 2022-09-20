@@ -2,14 +2,17 @@ using AssignThurs.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+[assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
 namespace AssignThurs
 {
@@ -35,10 +38,32 @@ namespace AssignThurs
                    options.UseSqlServer(connString);
                });
             services.AddRazorPages();
+
+
+
+
+
+            services
+                   .AddMvc();
+
+            // Register the Swagger Documentation Generation Middleware Service
+            services
+                 .AddSwaggerGen(config =>
+                 {
+
+                     config.SwaggerDoc("v1", new OpenApiInfo
+                     {
+                         Version = "v1",
+                         Title = "My LMS",
+                         Description = "Library Management System - API Version 1.0"
+                     });
+
+                 });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -51,6 +76,7 @@ namespace AssignThurs
                 app.UseHsts();
             }
 
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -61,6 +87,7 @@ namespace AssignThurs
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+
                 endpoints.MapControllerRoute(
                    name: "areas",
                    pattern: "{area}/{controller=Home}/{action=Index}/{id?}");

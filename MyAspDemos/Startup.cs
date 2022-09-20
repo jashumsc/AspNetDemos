@@ -103,7 +103,8 @@ namespace MyAspDemos
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , RoleManager<IdentityRole> rolemanager,
+            UserManager<IdentityUser> usermanager)
         {
             if (env.IsDevelopment())
             {
@@ -130,8 +131,8 @@ namespace MyAspDemos
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+           // app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -148,6 +149,9 @@ namespace MyAspDemos
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
             });
+
+            //ApplicationDbContextSeed.SeedIdentityRolesAsync(rolemanager).Wait();
+            //ApplicationDbContextSeed.SeedIdentityUserAsync(usermanager).Wait();
         }
     }
 }
